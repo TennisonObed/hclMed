@@ -2,8 +2,7 @@
 node_modules
 /backend/node_modules
 
-/DS_Store
-
+/.DS_Store
 
 # yarn error logs
 yarn-error.log
