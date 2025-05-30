@@ -8,11 +8,10 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (username === "admin" && password === "password") {
-      alert("Login successful");
-      router.push("/dashboard");
+      router.push("/list");
     } else {
       alert("Invalid credentials");
     }
@@ -26,7 +25,7 @@ export default function LoginPage() {
         </h2>
         <div className="flex justify-center mb-6">
           <img
-            src="/public/assets/profile-photo.png"
+            src="/assets/profile-photo.png"
             alt="Profile"
             className="w-24 h-24 rounded-full object-cover border-2 border-blue-600"
           />
@@ -34,24 +33,24 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-gray-700 font-medium mb-1">
+            <label className="block text-black font-medium mb-1">
               Username
             </label>
             <input
               type="text"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-1">
+            <label className="block text-black font-medium mb-1">
               Password
             </label>
             <input
               type="password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
