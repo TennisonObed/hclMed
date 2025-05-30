@@ -11,6 +11,12 @@ const userSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    userName: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
     email: {
       type: String,
       required: true,
@@ -26,18 +32,16 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true,
-      trim: true,
       minlength: 8,
-      validate(value) {
-        if (!value.match(/\d/) || !value.match(/[a-zA-Z]/)) {
-          throw new Error('Password must contain at least one letter and one number');
-        }
-      },
       private: true, // used by the toJSON plugin
     },
-    role: {
+    avatarUrl: {
       type: String,
-      enum: roles,
+      trim: true,
+    },
+    type: {
+      type: String,
+      enum: ['admin', 'user'],
       default: 'user',
     },
     isEmailVerified: {
@@ -89,3 +93,4 @@ userSchema.pre('save', async function (next) {
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+
