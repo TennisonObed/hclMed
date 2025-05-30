@@ -1,7 +1,8 @@
 # Dependencies
 node_modules
 
-.DS_Store
+./DS_Store
+
 
 # yarn error logs
 yarn-error.log
@@ -13,3 +14,5 @@ yarn-error.log
 # Code coverage
 coverage
 .vercel
+
+.DS_Store
